@@ -1,10 +1,19 @@
-
-async function httpClient(
-  request: RequestInfo
-): Promise<any> {
-  const response = await fetch(request);
-  const body = await response.json();
-  return body;
+interface HttpResponse<T> extends Response {
+  parsedBody?: T;
 }
 
-// const data = await httpClient("https://jsonplaceholder.typicode.com/todos");
+export async function httpClient<T>(
+  request: RequestInfo
+): Promise<HttpResponse<T>> {
+  const response: HttpResponse<T> = await fetch(request);
+  try {
+    // may error if there is no body
+    response.parsedBody = await response.json();
+  } catch (ex) { }
+
+  if (!response.ok) {
+    throw new Error(response.statusText);
+  }
+
+  return response;
+}
