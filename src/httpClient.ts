@@ -1,10 +1,10 @@
 
-async function client() {
-  const response = await fetch(
-    "https://jsonplaceholder.typicode.com/todos"
-  );
+async function httpClient(
+  request: RequestInfo
+): Promise<any> {
+  const response = await fetch(request);
   const body = await response.json();
-  console.log(body);
+  return body;
 }
 
-client();
+// const data = await httpClient("https://jsonplaceholder.typicode.com/todos");
