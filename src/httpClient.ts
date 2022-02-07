@@ -17,3 +17,26 @@ export async function httpClient<T>(
 
   return response;
 }
+
+export async function get<T>(
+  path: string,
+  args: RequestInit = { method: "get" }
+): Promise<HttpResponse<T>> {
+  return await httpClient<T>(new Request(path, args));
+};
+
+export async function post<T>(
+  path: string,
+  body: any,
+  args: RequestInit = { method: "post", body: JSON.stringify(body) }
+): Promise<HttpResponse<T>> {
+  return await httpClient<T>(new Request(path, args));
+};
+
+export async function put<T>(
+  path: string,
+  body: any,
+  args: RequestInit = { method: "put", body: JSON.stringify(body) }
+): Promise<HttpResponse<T>> {
+  return await httpClient<T>(new Request(path, args));
+};
