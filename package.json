@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "npm-run-all build:*",
-    "build:types": "tsc -p ./tsconfig.json",
+    "build:types": "tsc -p ./tsconfig.json --declaration --emitDeclarationOnly",
     "build:lib": "babel src --config-file ./babel.config.js --out-dir lib --ignore \"**/*.test.ts\" --extensions \".ts,.tsx\"",
     "check": "tsc -p ./tsconfig.json --noEmit",
     "test": "jest -o"
