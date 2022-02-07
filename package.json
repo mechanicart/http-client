@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "build": "npm-run-all build:*",
-    "build:lib": "babel src --config-file ./babel.config.js --out-dir lib --ignore \"**/*.test.ts\" --extensions \".ts,.tsx\"",
     "build:types": "tsc -p ./tsconfig.json",
+    "build:lib": "babel src --config-file ./babel.config.js --out-dir lib --ignore \"**/*.test.ts\" --extensions \".ts,.tsx\"",
     "check": "tsc -p ./tsconfig.json --noEmit",
     "test": "jest -o"
   },
