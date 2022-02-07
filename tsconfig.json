@@ -2,10 +2,18 @@
   "compilerOptions": {
     "target": "esnext",
     "module": "esnext",
-    "outDir": "./public",
+    "outDir": "./lib",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
-    "skipLibCheck": true
-  }
+    "skipLibCheck": true,
+    "declaration": true,
+  },
+  "include": [
+    "src/*"
+  ],
+  "exclude": [
+    "node_modules/*",
+    "**/*.test.ts"
+  ]
 }
